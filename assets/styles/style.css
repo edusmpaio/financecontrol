@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 93.75%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f0f2f5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container, main {
+  width: min(90vw, 800px);
+  margin: 0 auto;
+}
+
+h2 {
+  color: #363f5f;
+  font-weight: 400;
+  margin: 3.2rem 0 0.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+  main #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+header {
+  background: #487aa8;
+  padding: 2rem 0 10rem;
+  text-align: center;
+}
+header #logo {
+  color: #ffffff;
+}
+header #logo span {
+  font-weight: 200;
+}
+
+main #balance {
+  margin-top: -7rem;
+}
+main #balance h2 {
+  color: #ffffff;
+  margin-top: 0;
+}
+main #balance .card {
+  background: #ffffff;
+  border-radius: 0.25rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  color: #363f5f;
+}
+main #balance .card h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main #balance .card p {
+  color: #181818;
+  font-size: 2rem;
+  margin-top: 0.8rem;
+}
+main #balance .card:last-child {
+  background: #3db83c;
+  color: #ffffff;
+}
+main #balance .card:last-child p {
+  color: #ffffff;
+}
+main #transactions {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+main #transactions .button {
+  color: #309c30;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  transition: color 150ms ease;
+}
+main #transactions .button:hover {
+  color: #3db83c;
+}
+main #transactions table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: #343434;
+}
+main #transactions table tbody tr {
+  opacity: 0.7;
+  transition: opacity 150ms ease;
+}
+main #transactions table tbody tr:hover {
+  opacity: 1;
+}
+main #transactions table th {
+  background: #ffffff;
+  text-align: left;
+  font-weight: 500;
+  padding: 1rem 2rem;
+}
+main #transactions table th:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+main #transactions table th:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+main #transactions table td {
+  background: #ffffff;
+  padding: 1rem 2rem;
+}
+main #transactions table td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+main #transactions table td.description {
+  color: #363f5f;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+main #transactions table td.income {
+  color: #309c30;
+}
+main #transactions table td.expense {
+  color: #b81300;
+}
+main #transactions table td img {
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-overlay .modal {
+  background: #f0f2f5;
+  padding: 2.4rem;
+  width: 90%;
+  max-width: 500px;
+}
+.modal-overlay .form {
+  max-width: 500px;
+}
+.modal-overlay .form h2 {
+  margin: 0;
+}
+.modal-overlay .form .input-group {
+  margin-top: 0.8rem;
+}
+.modal-overlay .form .input-group small {
+  opacity: 0.4;
+}
+.modal-overlay .form .input-group input {
+  width: 100%;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+}
+.modal-overlay .form .input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-overlay .form .input-group.actions .button {
+  width: 48%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b81300;
+  font-weight: 600;
+  border: 2px solid #b81300;
+  border-radius: 0.25rem;
+  opacity: 0.6;
+  transition: all 150ms ease;
+}
+.modal-overlay .form .input-group.actions .button:hover {
+  background: #b81300;
+  color: #ffffff;
+  opacity: 1;
+}
+.modal-overlay .form .input-group.actions button {
+  width: 48%;
+  height: 50px;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #309c30;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.modal-overlay .form .input-group.actions button:hover {
+  background: #3db83c;
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: #363f5f;
+  opacity: 0.6;
+}
+footer a {
+  color: #363f5f;
+}
+footer a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */
